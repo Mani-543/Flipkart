@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+* {
+  margin: 3px;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 4px;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+  background-color: #f1f3f6;
+  color: #212121;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+textarea,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #c7c7c7;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+@keyframes categoryBlink {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  45% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+
+  65% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.category-blink {
+  display: inline-block;
+  animation: categoryBlink 2.8s ease-in-out infinite;
+}
+
+@keyframes searchGlow {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(255, 212, 59, 0),
+      0 4px 14px rgba(15, 23, 42, 0.12);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 4px rgba(255, 212, 59, 0.18),
+      0 6px 22px rgba(255, 212, 59, 0.22);
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(255, 212, 59, 0),
+      0 4px 14px rgba(15, 23, 42, 0.12);
+  }
+}
+
+.search-box-animation {
+  animation: searchGlow 3s ease-in-out infinite;
+}
+
+
+/* Search icon pulse */
+@keyframes searchIconPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.search-button-animation {
+  animation: searchIconPulse 2s ease-in-out infinite;
+}
+
+
+/* Stop animation when user interacts */
+.search-box-animation:focus-within {
+  animation: none;
+  box-shadow:
+    0 0 0 3px rgba(255, 212, 59, 0.35),
+    0 6px 20px rgba(15, 23, 42, 0.15);
+}
+
+.search-box-animation:focus-within .search-button-animation {
+  animation: none;
+}
