@@ -47,13 +47,10 @@ function Login() {
                 items-center
                 justify-center
                 bg-slate-100
-
                 px-4
                 py-8
-
                 sm:px-6
                 sm:py-10
-
                 lg:px-8
                 lg:py-12
             "
@@ -70,15 +67,11 @@ function Login() {
                     bg-white
                     shadow-xl
                     shadow-slate-300/40
-
                     md:grid-cols-12
-
                     lg:rounded-3xl
                 "
             >
-                {/* =====================================================
-                    LEFT PROMOTIONAL PANEL
-                ====================================================== */}
+                {/* LEFT PROMOTIONAL PANEL */}
                 <section
                     className="
                         relative
@@ -89,20 +82,15 @@ function Login() {
                         via-blue-700
                         to-indigo-800
                         text-white
-
                         md:col-span-5
                         md:flex
                         md:flex-col
                         md:justify-between
-
                         p-8
-
                         lg:p-10
-
                         xl:p-12
                     "
                 >
-                    {/* Decorative shapes */}
                     <div
                         className="
                             pointer-events-none
@@ -131,7 +119,6 @@ function Login() {
                         "
                     />
 
-                    {/* Brand + Introduction */}
                     <div className="relative z-10">
                         <Link
                             to="/"
@@ -144,7 +131,6 @@ function Login() {
                                 tracking-tight
                                 transition
                                 hover:opacity-90
-
                                 lg:text-3xl
                             "
                         >
@@ -173,7 +159,6 @@ function Login() {
                             className="
                                 mt-10
                                 space-y-4
-
                                 lg:mt-16
                                 lg:space-y-5
                             "
@@ -204,9 +189,7 @@ function Login() {
                                     font-extrabold
                                     leading-[1.12]
                                     tracking-tight
-
                                     lg:text-4xl
-
                                     xl:text-[42px]
                                 "
                             >
@@ -221,7 +204,6 @@ function Login() {
                                     text-sm
                                     leading-6
                                     text-blue-100/90
-
                                     lg:text-[15px]
                                 "
                             >
@@ -231,14 +213,12 @@ function Login() {
                         </div>
                     </div>
 
-                    {/* Benefits */}
                     <div
                         className="
                             relative
                             z-10
                             mt-10
                             space-y-3
-
                             lg:mt-12
                         "
                     >
@@ -297,24 +277,18 @@ function Login() {
                     </div>
                 </section>
 
-                {/* =====================================================
-                    LOGIN FORM
-                ====================================================== */}
+                {/* LOGIN FORM */}
                 <section
                     className="
                         p-6
-
                         sm:p-8
-
                         md:col-span-7
                         md:p-10
-
                         lg:p-12
-
                         xl:p-14
                     "
                 >
-                    {/* Mobile Brand */}
+                    {/* Mobile Logo */}
                     <div className="mb-8 md:hidden">
                         <Link
                             to="/"
@@ -349,183 +323,266 @@ function Login() {
                         </Link>
                     </div>
 
-                    {/* Heading */}
                     <div className="max-w-xl">
-                        <p
-                            className="
-                                text-[13px]
-                                font-bold
-                                uppercase
-                                tracking-[0.5em]
-                                text-blue-600
-
-                                sm:text-xs
-                            "
-                        >
-                            Welcome back
-                        </p>
-
-                        <h1
-                            className="
-                                mt-2
-                                text-2xl
-                                font-extrabold
-                                leading-tight
-                                tracking-tight
-                                text-slate-900
-
-                                sm:text-3xl
-
-                                lg:text-4xl
-                            "
-                        >
-                            Sign in to your account
-                        </h1>
-
-                        <p
-                            className="
-                                mt-2
-                                text-sm
-                                leading-6
-                                text-slate-500
-
-                                sm:text-[15px]
-                            "
-                        >
-                            Enter your details to continue shopping.
-                        </p>
-                    </div>
-
-                    {/* Error */}
-                    {error && (
-                        <div
-                            className="
-                                mt-6
-                                rounded-xl
-                                border
-                                border-red-200
-                                bg-red-50
-                                px-4
-                                py-3.5
-                                text-sm
-                                font-medium
-                                leading-5
-                                text-red-700
-                            "
-                        >
-                            {error}
-                        </div>
-                    )}
-
-                    {/* Form */}
-                    <form
-                        onSubmit={handleSubmit}
-                        className="
-                            mt-7
-                            space-y-6
-
-                            sm:mt-8
-                        ">
-
-                        {/* EMAIL */}
-                        <input
-                            id="email"
-                            type="email"
-                            value={email}
-                            onChange={(event) => setEmail(event.target.value)}
-                            required
-                            autoComplete="email"
-                            placeholder="you@example.com"
-                            className="h-12 w-full rounded-xl border  border-slate-300 bg-slate-50 !px-6 text-sm
-                             text-slate-900 outline-none transition-all placeholder:text-slate-400 hover:border-slate-400
-                             focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
-                        />
-
-                        {/* PASSWORD */}
-                        <div className="relative">
-                            <input
-                                id="password"
-                                type={showPassword ? "text" : "password"}
-                                value={password}
-                                onChange={(event) => setPassword(event.target.value)}
-                                required
-                                minLength={6}
-                                autoComplete="current-password"
-                                placeholder="Enter your password"
-                                className="h-12 w-full rounded-xl border border-slate-300 bg-slate-50 !px-6 !pr-24
-                                            text-sm text-slate-900 outline-none transition-all placeholder:text-slate-400
-                                            hover:border-slate-400 focus:border-blue-600 focus:bg-white focus:ring-4
-                                            focus:ring-blue-100"
-                            />
-
-                            <button
-                                type="button"
-                                onClick={() =>
-                                    setShowPassword((visible) => !visible)
-                                }
-                                className="absolute inset-y-0 right-0 flex items-center justify-center px-5 text-xs font-bold text-blue-600 transition hover:text-blue-800"
-                            >
-                                {showPassword ? "Hide" : "Show"}
-                            </button>
-                        </div>
-
-                        {/* SIGN IN BUTTON */}
-                        <button
-                            type="submit"
-                            disabled={loading}
-                            className="
-                                       mt-2
-                                       flex
-                                       h-12
-                                       w-full
-                                       items-center
-                                       justify-center
-                                       rounded-xl
-                                       bg-blue-600
-                                       !px-10
-                                       text-sm
-                                       font-bold
-                                       text-white
-                                       shadow-lg
-                                       shadow-blue-500/20
-                                       transition-all
-                                       hover:bg-blue-700
-                                       hover:shadow-blue-500/30
-                                       active:scale-[0.99]
-                                      disabled:cursor-not-allowed
-                                      disabled:opacity-60"
-                        >
-                            {loading ? "Signing in..." : "Sign in"}
-                        </button>
-                    </form>
-
-                    {/* Register */}
-                    <div
-                        className="
-                            mt-8
-                            border-t
-                            border-slate-200
-                            pt-6
-                            text-center
-
-                            sm:mt-10
-                        "
-                    >
-                        <p className="text-sm text-slate-500">
-                            New to Flip Pro?{" "}
-                            <Link
-                                to="/register"
+                        {/* Heading */}
+                        <div>
+                            <p
                                 className="
+                                    text-xs
                                     font-bold
+                                    uppercase
+                                    tracking-[0.15em]
                                     text-blue-600
-                                    transition
-                                    hover:text-blue-700
-                                    hover:underline
                                 "
                             >
-                                Create an account
-                            </Link>
-                        </p>
+                                Welcome back
+                            </p>
+
+                            <h1
+                                className="
+                                    mt-2
+                                    text-2xl
+                                    font-extrabold
+                                    leading-tight
+                                    tracking-tight
+                                    text-slate-900
+                                    sm:text-3xl
+                                    lg:text-4xl
+                                "
+                            >
+                                Sign in to your account
+                            </h1>
+
+                            <p
+                                className="
+                                    mt-2
+                                    text-sm
+                                    leading-6
+                                    text-slate-500
+                                    sm:text-[15px]
+                                "
+                            >
+                                Enter your details to continue shopping.
+                            </p>
+                        </div>
+
+                        {/* Error */}
+                        {error && (
+                            <div
+                                className="
+                                    mt-6
+                                    rounded-xl
+                                    border
+                                    border-red-200
+                                    bg-red-50
+                                    px-4
+                                    py-3.5
+                                    text-sm
+                                    font-medium
+                                    leading-5
+                                    text-red-700
+                                "
+                            >
+                                {error}
+                            </div>
+                        )}
+
+                        {/* Form */}
+                        <form
+                            onSubmit={handleSubmit}
+                            className="
+                                mt-7
+                                space-y-6
+                                sm:mt-8
+                            "
+                        >
+                            {/* Email */}
+                            <div>
+                                <label
+                                    htmlFor="email"
+                                    className="
+                                        mb-2
+                                        block
+                                        text-sm
+                                        font-bold
+                                        text-slate-700
+                                    "
+                                >
+                                    Email address
+                                </label>
+
+                                <input
+                                    id="email"
+                                    type="email"
+                                    value={email}
+                                    onChange={(event) =>
+                                        setEmail(event.target.value)
+                                    }
+                                    required
+                                    autoComplete="email"
+                                    placeholder="you@example.com"
+                                    className="
+                                        box-border
+                                        h-12
+                                        w-full
+                                        rounded-xl
+                                        border
+                                        border-slate-300
+                                        bg-slate-50
+                                        px-5
+                                        text-sm
+                                        text-slate-900
+                                        outline-none
+                                        transition-all
+                                        placeholder:text-slate-400
+                                        hover:border-slate-400
+                                        focus:border-blue-600
+                                        focus:bg-white
+                                        focus:ring-4
+                                        focus:ring-blue-100
+                                    "
+                                />
+                            </div>
+
+                            {/* Password */}
+                            <div>
+                                <label
+                                    htmlFor="password"
+                                    className="
+                                        mb-2
+                                        block
+                                        text-sm
+                                        font-bold
+                                        text-slate-700
+                                    "
+                                >
+                                    Password
+                                </label>
+
+                                <div className="relative h-12 w-full">
+                                    <input
+                                        id="password"
+                                        type={
+                                            showPassword
+                                                ? "text"
+                                                : "password"
+                                        }
+                                        value={password}
+                                        onChange={(event) =>
+                                            setPassword(event.target.value)
+                                        }
+                                        required
+                                        minLength={6}
+                                        autoComplete="current-password"
+                                        placeholder="Enter your password"
+                                        className="
+                                            box-border
+                                            h-12
+                                            w-full
+                                            rounded-xl
+                                            border
+                                            border-slate-300
+                                            bg-slate-50
+                                            px-5
+                                            pr-20
+                                            text-sm
+                                            text-slate-900
+                                            outline-none
+                                            transition-all
+                                            placeholder:text-slate-400
+                                            hover:border-slate-400
+                                            focus:border-blue-600
+                                            focus:bg-white
+                                            focus:ring-4
+                                            focus:ring-blue-100
+                                        "
+                                    />
+
+                                    <button
+                                        type="button"
+                                        onClick={() =>
+                                            setShowPassword(
+                                                (visible) => !visible
+                                            )
+                                        }
+                                        className="
+                                            absolute
+                                            inset-y-0
+                                            right-0
+                                            flex
+                                            items-center
+                                            justify-center
+                                            px-4
+                                            text-xs
+                                            font-bold
+                                            text-blue-600
+                                            transition
+                                            hover:text-blue-800
+                                        "
+                                    >
+                                        {showPassword ? "Hide" : "Show"}
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Sign In */}
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="
+                                    mt-5
+                                    flex
+                                    h-12
+                                    w-full
+                                    items-center
+                                    justify-center
+                                    rounded-xl
+                                    bg-blue-600
+                                    px-5
+                                    text-sm
+                                    font-bold
+                                    text-white
+                                    shadow-lg
+                                    shadow-blue-500/20
+                                    transition-all
+                                    hover:bg-blue-700
+                                    hover:shadow-blue-500/30
+                                    active:scale-[0.99]
+                                    disabled:cursor-not-allowed
+                                    disabled:opacity-60
+                                "
+                            >
+                                {loading ? "Signing in..." : "Sign in"}
+                            </button>
+                        </form>
+
+                        {/* Register */}
+                        <div
+                            className="
+                                mt-8
+                                border-t
+                                border-slate-200
+                                pt-6
+                                text-center
+                                sm:mt-10
+                            "
+                        >
+                            <p className="text-sm text-slate-500">
+                                New to Flip Pro?{" "}
+                                <Link
+                                    to="/register"
+                                    className="
+                                        font-bold
+                                        text-blue-600
+                                        transition
+                                        hover:text-blue-700
+                                        hover:underline
+                                    "
+                                >
+                                    Create an account
+                                </Link>
+                            </p>
+                        </div>
                     </div>
                 </section>
             </div>

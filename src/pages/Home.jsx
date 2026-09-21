@@ -89,7 +89,7 @@ function Home() {
 
 {/* HERO */}
 <section className="mx-auto w-full max-w-[1480px] px-0 sm:px-3 lg:px-5">
-  <div className="relative h-[240px] w-full overflow-hidden rounded-none sm:rounded-2xl sm:h-[320px] lg:h-[400px]">
+  <div className="relative h-[240px] w-full overflow-hidden rounded-2xl sm:rounded-2xl sm:h-[320px] lg:h-[400px]">
 
     {banners.map((banner, index) => (
       <div
