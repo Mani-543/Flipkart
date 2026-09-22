@@ -51,8 +51,8 @@ const categories = [
 function CategoryNav() {
   return (
 
-    <div className=" mb-3 mx-auto min-h-[72px] w-full max-w-[1500px] rounded-2xl  bg-[#fff9c9] px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-3">
-      <nav className="w-full overflow-hidden rounded-2xl border border-gray-100 bg-gray-100 shadow-sm">
+    <div className=" mb-3 mt-3  mx-auto min-h-[72px] w-full max-w-[1508px] rounded-2xl   px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-3">
+      <nav className="w-full overflow-hidden rounded-2xl border  bg-gray-100 shadow-sm">
         <div className="flex min-h-[78px] w-full items-center justify-between gap-2 overflow-x-auto px-3 py-2 scrollbar-hide sm:px-5 lg:px-8">
           {categories.map((category, index) => (
             <Link

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className=" mt-3 min-h-[72px] w-full max-w-[1500px] rounded-2xl border border-slate-800 bg-[#0b1424] text-slate-300">
+    <footer className=" mt-3 mr-0 min-h-[72px] w-full max-w-[1520px] rounded-2xl border border-slate-800 bg-[#0b1424] text-slate-300">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-12 sm:grid-cols-2 sm:px-8 lg:grid-cols-[1.35fr_1fr_1fr_1.15fr] lg:gap-14 lg:px-10 lg:py-14">
         {/* ABOUT */}
         <div>
