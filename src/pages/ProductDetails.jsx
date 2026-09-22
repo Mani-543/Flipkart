@@ -40,7 +40,7 @@ function ProductDetails() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#f4f6f9] p-6">
+      <main className="min-h-screen w-full overflow-x-hidden bg-[#f4f6f9] px-4 pb-12 pt-8 sm:px-6 sm:pb-16 sm:pt-10 lg:px-8 lg:pb-20 lg:pt-12">
         <Loader />
       </main>
     );
@@ -48,7 +48,7 @@ function ProductDetails() {
 
   if (error || !product) {
     return (
-      <main className="min-h-screen bg-gray-100 p-6">
+      <main className="min-h-screen w-full overflow-x-hidden bg-[#f4f6f9] px-4 pb-12 pt-8 sm:px-6 sm:pb-16 sm:pt-10 lg:px-8 lg:pb-20 lg:pt-12">
         <div className="mx-auto max-w-xl rounded-2xl border border-slate-200/80 bg-white p-8 text-center shadow-sm">
           <div className="text-5xl">😕</div>
 
@@ -88,10 +88,12 @@ function ProductDetails() {
   };
 
   return (
-    <main className="min-h-screen bg-[#f4f6f9] px-4 py-8 sm:px-6 sm:py-10">
-      <div className="mx-auto max-w-[1440px]">
+    <main className="min-h-screen w-full overflow-x-hidden bg-[#f4f6f9] px-4 pb-12 pt-8 sm:px-6 sm:pb-16 sm:pt-10 lg:px-8 lg:pb-20 lg:pt-12">
 
-        <div className="mb-4 text-sm text-gray-500">
+      <div className="mx-auto w-full max-w-[1440px]">
+
+        {/* BREADCRUMB */}
+        <div className="mb-6 text-sm text-gray-500 sm:mb-8">
           <Link to="/" className="hover:text-blue-600">
             Home
           </Link>
@@ -110,9 +112,11 @@ function ProductDetails() {
           <span>{product.name}</span>
         </div>
 
-        <div className="grid overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm lg:grid-cols-2">
+        {/* PRODUCT DETAILS */}
+        <div className="grid w-full overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm lg:grid-cols-2">
 
-          <div className="relative flex min-h-[360px] items-center justify-center bg-slate-50 p-6 sm:min-h-[500px] sm:p-10">
+          {/* PRODUCT IMAGE */}
+          <div className="relative flex min-h-[340px] items-center justify-center bg-slate-50 px-5 py-8 sm:min-h-[500px] sm:p-10">
 
             <button
               type="button"
@@ -130,7 +134,8 @@ function ProductDetails() {
 
           </div>
 
-          <div className="p-6 sm:p-10">
+          {/* PRODUCT INFORMATION */}
+          <div className="flex flex-col px-6 py-8 sm:px-10 sm:py-12 lg:px-12">
 
             {product.badge && (
               <span className="inline-block rounded bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
@@ -156,6 +161,7 @@ function ProductDetails() {
               />
             </div>
 
+            {/* PRICE */}
             <div className="my-6 border-y py-6">
 
               <div className="flex flex-wrap items-center gap-3">
@@ -189,6 +195,7 @@ function ProductDetails() {
 
             </div>
 
+            {/* DESCRIPTION */}
             <h2 className="text-lg font-bold text-gray-900">
               Product Description
             </h2>
@@ -198,6 +205,7 @@ function ProductDetails() {
                 "No description available."}
             </p>
 
+            {/* DELIVERY INFO */}
             <div className="mt-6 rounded-lg bg-gray-50 p-4 text-sm text-gray-700">
 
               <p>🚚 Free delivery available</p>
@@ -212,13 +220,14 @@ function ProductDetails() {
 
             </div>
 
+            {/* ACTION BUTTONS */}
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
 
               <button
                 type="button"
                 onClick={handleAddToCart}
                 disabled={product.stock <= 0}
-                className="rounded-lg bg-[#ffd43b] px-6 py-3.5 font-bold text-slate-950 shadow-sm transition hover:bg-[#ffca1a] disabled:cursor-not-allowed disabled:bg-gray-300"
+                className="min-h-12 rounded-lg bg-[#ffd43b] px-6 py-3.5 font-bold text-slate-950 shadow-sm transition hover:bg-[#ffca1a] disabled:cursor-not-allowed disabled:bg-gray-300"
               >
                 🛒 Add to Cart
               </button>
@@ -227,17 +236,18 @@ function ProductDetails() {
                 type="button"
                 onClick={handleBuyNow}
                 disabled={product.stock <= 0}
-                className="rounded-lg bg-[#ff9f1c] px-6 py-3.5 font-bold text-slate-950 shadow-sm transition hover:bg-[#f58f08] disabled:cursor-not-allowed disabled:bg-gray-300"
+                className="min-h-12 rounded-lg bg-[#ff9f1c] px-6 py-3.5 font-bold text-slate-950 shadow-sm transition hover:bg-[#f58f08] disabled:cursor-not-allowed disabled:bg-gray-300"
               >
                 Buy Now
               </button>
 
             </div>
 
+            {/* WISHLIST */}
             <button
               type="button"
               onClick={handleWishlist}
-              className="mt-3 w-full rounded-lg border border-slate-300 px-6 py-3 font-semibold text-gray-800 transition hover:bg-slate-50"
+              className="mt-3 min-h-12 w-full rounded-lg border border-slate-300 px-6 py-3 font-semibold text-gray-800 transition hover:bg-slate-50"
             >
               {liked
                 ? "♥ Remove from Wishlist"
@@ -247,7 +257,9 @@ function ProductDetails() {
           </div>
 
         </div>
+
       </div>
+
     </main>
   );
 }

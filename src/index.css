@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 * {
-  margin: 3px;
   padding: 2px;
+  margin:0px;
   box-sizing: border-box;
 }
 
@@ -15,7 +15,7 @@ body,
 #root {
   width: 100%;
   min-height: 100%;
-  margin: 4px;
+  margin: 0px;
 }
 
 body {

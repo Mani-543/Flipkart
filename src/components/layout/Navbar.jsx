@@ -48,7 +48,7 @@ const handleSearch = (event) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 mx-auto min-h-[72px] w-full max-w-[1500px] rounded-2xl border border-blue-700/40 bg-[#0755b8] text-white shadow-lg shadow-blue-900/10">
+    <header className="sticky top-0 z-50 mb-3 min-h-[72px] w-full max-w-[1500px] rounded-2xl border border-blue-700/40 bg-[#0755b8] text-white shadow-lg shadow-blue-900/10">
 
       {/* NAVBAR INNER */}
       <div

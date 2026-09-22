@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/layout/Navbar";
@@ -20,95 +21,98 @@ import ProtectedRoute from "./components/common/ProtectedRoute";
 
 function AppContent() {
   const location = useLocation();
+
   const isAuthPage = ["/login", "/register"].includes(location.pathname);
 
   return (
-    <>
+    <div className="min-h-screen w-full bg-gray-100">
       {!isAuthPage && <Navbar />}
       {!isAuthPage && <CategoryNav />}
 
-      <Routes>
-        <Route path="/" element={<Home />} />
+      <main className="w-full">
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        <Route path="/products" element={<Products />} />
+          <Route path="/products" element={<Products />} />
 
-        <Route
-          path="/products/:id"
-          element={<ProductDetails />}
-        />
+          <Route
+            path="/products/:id"
+            element={<ProductDetails />}
+          />
 
-        <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
 
-        <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<Register />} />
 
-        <Route
-          path="/cart"
-          element={
-            <ProtectedRoute>
-              <Cart />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/cart"
+            element={
+              <ProtectedRoute>
+                <Cart />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/wishlist"
-          element={
-            <ProtectedRoute>
-              <Wishlist />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/wishlist"
+            element={
+              <ProtectedRoute>
+                <Wishlist />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/checkout"
-          element={
-            <ProtectedRoute>
-              <Checkout />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/checkout"
+            element={
+              <ProtectedRoute>
+                <Checkout />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/orders"
-          element={
-            <ProtectedRoute>
-              <Orders />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/orders"
+            element={
+              <ProtectedRoute>
+                <Orders />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/profile"
-          element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/order-success"
-          element={<OrderSuccess />}
-        />
+          <Route
+            path="/order-success"
+            element={<OrderSuccess />}
+          />
 
-        <Route
-          path="*"
-          element={
-            <div className="min-h-screen bg-gray-100 px-4 py-20 text-center">
-              <h1 className="text-5xl font-bold text-gray-800">
-                404
-              </h1>
+          <Route
+            path="*"
+            element={
+              <div className="min-h-screen bg-gray-100 px-4 py-20 text-center">
+                <h1 className="text-5xl font-bold text-gray-800">
+                  404
+                </h1>
 
-              <p className="mt-3 text-gray-500">
-                Page not found.
-              </p>
-            </div>
-          }
-        />
-      </Routes>
+                <p className="mt-3 text-gray-500">
+                  Page not found.
+                </p>
+              </div>
+            }
+          />
+        </Routes>
+      </main>
 
       {!isAuthPage && <Footer />}
-    </>
+    </div>
   );
 }
 

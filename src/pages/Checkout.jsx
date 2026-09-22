@@ -148,7 +148,7 @@ function Checkout() {
               </div>
             )}
 
-            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <div className="mt-5 grid gap-4 p-2 sm:grid-cols-2">
 
               <div>
                 <label className="text-sm font-semibold">
@@ -255,7 +255,7 @@ function Checkout() {
 
               <div className="mt-4 space-y-3">
 
-                <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-200 p-4 transition hover:border-blue-300 hover:bg-blue-50/40">
+                <label className="flex cursor-pointer px-3 items-center gap-3 rounded-xl border border-slate-200 p-4 transition hover:border-blue-300 hover:bg-blue-50/40">
                   <input
                     type="radio"
                     name="paymentMethod"

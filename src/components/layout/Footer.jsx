@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="mx-auto mt-14 min-h-[72px] w-full max-w-[1500px] rounded-2xl border border-slate-800 bg-[#0b1424] text-slate-300">
+    <footer className=" mt-3 min-h-[72px] w-full max-w-[1500px] rounded-2xl border border-slate-800 bg-[#0b1424] text-slate-300">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-12 sm:grid-cols-2 sm:px-8 lg:grid-cols-[1.35fr_1fr_1fr_1.15fr] lg:gap-14 lg:px-10 lg:py-14">
         {/* ABOUT */}
         <div>
@@ -10,7 +10,7 @@ function Footer() {
             Flip Pro
           </h2>
 
-          <p className="mt-4 max-w-xs text-sm leading-7 text-slate-400">
+          <p className="mt-2 max-w-xs text-sm leading-7 text-slate-400">
             A modern e-commerce project built with
             React, Tailwind CSS, Node.js, Express and
             MongoDB.
@@ -23,7 +23,7 @@ function Footer() {
             Quick Links
           </h3>
 
-          <div className="mt-5 space-y-3 text-sm">
+          <div className="mt-2 space-y-3 text-sm">
             <Link
               to="/"
               className="block transition hover:translate-x-1 hover:text-white"
@@ -60,7 +60,7 @@ function Footer() {
             Customer
           </h3>
 
-          <div className="mt-5 space-y-3 text-sm">
+          <div className="mt-2 space-y-3 text-sm">
             <Link
               to="/login"
               className="block transition hover:translate-x-1 hover:text-white"
@@ -97,7 +97,7 @@ function Footer() {
             Contact
           </h3>
 
-          <div className="mt-5 space-y-3 text-sm text-slate-400">
+          <div className="mt-2 space-y-3 text-sm text-slate-400">
             <p>support@flippro.com</p>
             <p>+91 98765 43210</p>
             <p>India</p>

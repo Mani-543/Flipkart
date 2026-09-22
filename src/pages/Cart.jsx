@@ -66,7 +66,7 @@ function Cart() {
               return (
                 <div
                   key={productId}
-                  className="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm transition hover:shadow-md sm:p-5"
+                  className="rounded-2xl border py-3 border-slate-200/80 bg-white p-4 shadow-sm transition hover:shadow-md sm:p-5"
                 >
                   <div className="flex gap-4">
 

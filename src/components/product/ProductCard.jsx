@@ -31,8 +31,8 @@ function ProductCard({ product }) {
       className="
         group
         relative
-        px-0.5
-        py-0.5
+        px-1
+        py-1
         flex
         h-full
         min-w-0
@@ -189,7 +189,7 @@ function ProductCard({ product }) {
         </div>
 
         {/* CART BUTTON */}
-        <div className="mt-auto pt-2.5">
+        <div className="mt-auto">
           <button
             type="button"
             onClick={handleAddToCart}
@@ -197,6 +197,7 @@ function ProductCard({ product }) {
             className="
               flex
               h-9
+              mx-1 my-1
               w-full
               items-center
               justify-center

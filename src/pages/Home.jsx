@@ -22,7 +22,7 @@ const banners = [
     button: "Shop Mobiles",
     link: "/products?category=mobiles",
     image:
-      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=1400",
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=1600",
   },
   {
     title: "Upgrade Your Tech",
@@ -30,7 +30,7 @@ const banners = [
     button: "Explore Electronics",
     link: "/products?category=electronics",
     image:
-      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=1400",
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=1600",
   },
   {
     title: "New Looks. Better Prices.",
@@ -38,7 +38,7 @@ const banners = [
     button: "Shop Fashion",
     link: "/products?category=fashion",
     image:
-      "https://images.unsplash.com/photo-1445205170230-053b83016050?w=1400",
+      "https://images.unsplash.com/photo-1445205170230-053b83016050?w=1600",
   },
 ];
 
@@ -79,150 +79,167 @@ function Home() {
   const topRated = products
     .slice()
     .sort(
-      (a, b) =>
-        Number(b.rating || 0) - Number(a.rating || 0)
+      (a, b) => Number(b.rating || 0) - Number(a.rating || 0)
     )
     .slice(0, 5);
 
   return (
-    <main className="flex min-h-screen flex-col gap-8 bg-[#f4f6f9] pb-10 sm:gap-10">
+    <main className="w-full overflow-x-hidden bg-[#f4f6f9] pb-8">
 
-{/* HERO */}
-<section className="mx-auto w-full max-w-[1480px] px-0 sm:px-3 lg:px-5">
-  <div className="relative h-[240px] w-full overflow-hidden rounded-2xl sm:rounded-2xl sm:h-[320px] lg:h-[400px]">
+      {/* HERO */}
+      <section className="mx-auto w-full max-w-[1500px] px-3 pt-2 sm:px-3 lg:px-4">
+        <div className="relative h-[245px] w-full overflow-hidden rounded-2xl sm:h-[320px] lg:h-[365px]">
 
-    {banners.map((banner, index) => (
-      <div
-        key={banner.title}
-        className={`absolute inset-0 transition-opacity duration-700 ${
-          index === bannerIndex
-            ? "opacity-100"
-            : "pointer-events-none opacity-0"
-        }`}
-      >
-        <img
-          src={banner.image}
-          alt={banner.title}
-          className="block h-full w-full object-cover"
-        />
+          {banners.map((banner, index) => (
+            <div
+              key={banner.title}
+              className={`absolute inset-0 transition-opacity duration-700 ${
+                index === bannerIndex
+                  ? "opacity-100"
+                  : "pointer-events-none opacity-0"
+              }`}
+            >
+              <img
+                src={banner.image}
+                alt={banner.title}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
 
-        {/* Content */}
-        <div className="absolute inset-0 flex items-center">
-          <div className="max-w-xl px-6 sm:px-10 lg:px-16">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#031b3d]/90 via-[#062c5e]/55 to-transparent" />
 
-            <p className="text-[10px] font-bold uppercase tracking-[0.8em] text-blue-200 sm:text-xs">
-              Flip Pro
-            </p>
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full px-4 sm:px-10 lg:px-14 xl:px-20">
 
-            <h1 className="mt-2 text-2xl font-bold leading-tight text-white sm:text-2xl lg:text-3xl xl:text-3xl">
-              {banner.title}
-            </h1>
+                  <p className="text-[9px] font-extrabold uppercase tracking-[0.45em] text-blue-200 sm:text-xs">
+                    Flip Pro
+                  </p>
 
-            <p className="mt-3 max-w-md text-xs text-gray-200 sm:text-sm lg:text-base">
-              {banner.subtitle}
-            </p>
+                  <h1 className="mt-2 max-w-[620px] text-2xl font-black leading-[1.08] text-white sm:text-3xl md:text-4xl lg:text-5xl">
+                    {banner.title}
+                  </h1>
 
-            <Link
-              to={banner.link}
-               className="mt-4 inline-flex rounded-lg bg-[#ffd43b] px-5 py-2 text-xs font-bold text-slate-950 transition hover:bg-[#ffca1a] sm:px-6 sm:py-3 sm:text-sm"            >
-              {banner.button}
-            </Link>
+                  <p className="mt-3 max-w-lg text-xs font-medium text-blue-50 sm:text-sm lg:text-base">
+                    {banner.subtitle}
+                  </p>
 
-          </div>
-        </div>
-      </div>
-    ))}
+                  <Link
+                    to={banner.link}
+                    className="mt-5 inline-flex items-center rounded-lg bg-[#ffd43b] px-5 py-2.5 text-xs font-extrabold text-slate-950 shadow-md transition hover:bg-[#ffca1a] sm:px-6 sm:py-3 sm:text-sm"
+                  >
+                    {banner.button}
+                    <span className="ml-2">→</span>
+                  </Link>
 
-    {/* Previous */}
-    <button
-      type="button"
-      onClick={() =>
-        setBannerIndex(
-          bannerIndex === 0
-            ? banners.length - 1
-            : bannerIndex - 1
-        )
-      }
-      aria-label="Previous promotion"
-      className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-2xl text-gray-800 shadow-md transition hover:scale-105 sm:left-5 sm:h-10 sm:w-10"
-    >
-      ‹
-    </button>
-
-    {/* Next */}
-    <button
-      type="button"
-      onClick={() =>
-        setBannerIndex(
-          bannerIndex === banners.length - 1
-            ? 0
-            : bannerIndex + 1
-        )
-      }
-      aria-label="Next promotion"
-      className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-2xl text-gray-800 shadow-md transition hover:scale-105 sm:right-5 sm:h-10 sm:w-10"
-    >
-      ›
-    </button>
-
-    {/* Dots */}
-    <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-1.5">
-      {banners.map((banner, index) => (
-        <button
-          key={banner.title}
-          type="button"
-          onClick={() => setBannerIndex(index)}
-          aria-label={`Go to slide ${index + 1}`}
-          className={`h-1.5 rounded-full transition-all ${
-            index === bannerIndex
-              ? "w-6 bg-white"
-              : "w-1.5 bg-white/60"
-          }`}
-        />
-      ))}
-    </div>
-
-  </div>
-</section>
-
-      {/* CATEGORIES */}
-      <section className="mx-auto w-full max-w-[1480px] px-3 pt-5 sm:px-6 lg:px-8">
-    <div className="rounded-2xl border border-slate-200/80 bg-gray-400 px-4 py-6 shadow-sm sm:px-7">
-
-          <h2 className="mb-5 text-lg font-bold tracking-tight text-gray-900 sm:text-xl">
-            Shop by Category
-          </h2>
-
-          <div className="flex gap-5 overflow-x-auto pb-1 sm:justify-between sm:gap-3">
-            {categories.map((category) => (
-              <Link
-                key={category.value}
-                to={`/products?category=${category.value}`}
-                className="group flex min-w-[72px] flex-col items-center sm:min-w-[90px]"
-              >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-2xl transition group-hover:-translate-y-1 group-hover:bg-blue-50 sm:h-16 sm:w-16">
-                  {category.icon}
                 </div>
+              </div>
+            </div>
+          ))}
 
-                <span className="mt-2 whitespace-nowrap text-xs font-semibold text-gray-700 group-hover:text-blue-600 sm:text-sm">
-                  {category.name}
-                </span>
-              </Link>
+          <button
+            type="button"
+            onClick={() =>
+              setBannerIndex(
+                bannerIndex === 0
+                  ? banners.length - 1
+                  : bannerIndex - 1
+              )
+            }
+            className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white text-xl font-bold text-slate-800 shadow-lg sm:left-5 sm:h-11 sm:w-11"
+          >
+            ‹
+          </button>
+
+          <button
+            type="button"
+            onClick={() =>
+              setBannerIndex(
+                bannerIndex === banners.length - 1
+                  ? 0
+                  : bannerIndex + 1
+              )
+            }
+            className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white text-xl font-bold text-slate-800 shadow-lg sm:right-5 sm:h-11 sm:w-11"
+          >
+            ›
+          </button>
+
+          <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-1.5">
+            {banners.map((banner, index) => (
+              <button
+                key={banner.title}
+                type="button"
+                onClick={() => setBannerIndex(index)}
+                className={`h-1.5 rounded-full transition-all ${
+                  index === bannerIndex
+                    ? "w-7 bg-white"
+                    : "w-1.5 bg-white/60"
+                }`}
+              />
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* DEALS */}
-      <section className="mx-auto w-full max-w-[1480px] px-3 pt-5 sm:px-6 lg:px-8">
-<div className="w-full rounded-xl bg-white p-4 shadow-sm sm:rounded-2xl sm:p-6 lg:p-7">
-          <div className="mb-5 flex items-center justify-between border-b pb-4">
+      {/* SHOP BY CATEGORY */}
+      <section className="mx-auto mt-4 w-full max-w-[1500px] px-3 sm:px-3 lg:px-4">
+
+        <div className="mb-3 flex items-end justify-between">
+          <div>
+            <h2 className="text-xl font-extrabold text-slate-900 sm:text-2xl">
+              Shop by Category
+            </h2>
+
+            <p className="mt-1 text-xs text-slate-500 sm:text-sm">
+              Explore products from every category
+            </p>
+          </div>
+
+          <Link
+            to="/products"
+            className="text-xs font-bold text-blue-600 sm:text-sm"
+          >
+            View All →
+          </Link>
+        </div>
+
+        <div className="grid w-full grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7">
+          {categories.map((category, index) => (
+            <Link
+              key={category.value}
+              to={`/products?category=${category.value}`}
+              className="group flex min-h-[112px] w-full flex-col items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-4 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
+            >
+              <span
+                className="category-blink text-3xl"
+                style={{
+                  animationDelay: `${index * 0.35}s`,
+                }}
+              >
+                {category.icon}
+              </span>
+
+              <span className="mt-2.5 text-xs font-bold text-slate-700 group-hover:text-blue-600 sm:text-sm">
+                {category.name}
+              </span>
+            </Link>
+          ))}
+        </div>
+
+      </section>
+
+      {/* DEALS OF THE DAY */}
+      <section className="mx-auto mt-8 w-full max-w-[1500px] px-3 sm:px-3 lg:px-4">
+
+        <div className="w-full rounded-2xl border border-slate-200 bg-white p-3 shadow-sm sm:p-5 lg:p-6">
+
+          <div className="mb-4 flex items-end justify-between border-b border-slate-100 pb-4">
             <div>
-              <h2 className="text-lg font-bold text-gray-900 sm:text-xl">
-                Deals of the Day
+              <h2 className="text-lg font-extrabold text-slate-900 sm:text-2xl">
+                🔥 Deals of the Day
               </h2>
 
-              <p className="mt-1 text-xs text-gray-500 sm:text-sm">
+              <p className="mt-1 text-xs text-slate-500 sm:text-sm">
                 Great products. Better prices.
               </p>
             </div>
@@ -238,42 +255,46 @@ function Home() {
           {loading ? (
             <Loader />
           ) : deals.length > 0 ? (
-<div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-5 lg:gap-5">
-                {deals.map((product) => (
-                <ProductCard
+            <div className="grid w-full grid-cols-1 justify-items-center gap-3 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:grid-cols-5">
+              {deals.map((product) => (
+                <div
                   key={product._id}
-                  product={product}
-                />
+                  className="w-[82%] sm:w-full"
+                >
+                  <ProductCard product={product} />
+                </div>
               ))}
             </div>
           ) : (
-            <p className="py-8 text-center text-sm text-gray-500">
+            <p className="py-8 text-center text-sm text-slate-500">
               No deals available.
             </p>
           )}
+
         </div>
       </section>
 
-      {/* SINGLE PROMO */}
-      <section className="mx-auto w-full max-w-[1480px] px-3 pt-5 sm:px-6 lg:px-8">
-        <div className="relative h-[210px] overflow-hidden rounded-2xl shadow-lg shadow-slate-900/10 sm:h-[250px] lg:h-[290px]">
+      {/* EXCLUSIVE */}
+      <section className="mx-auto mt-8 w-full max-w-[1500px] px-2 sm:px-3 lg:px-4">
+
+        <div className="relative h-[190px] w-full overflow-hidden rounded-2xl sm:h-[230px] lg:h-[270px]">
 
           <img
-            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400"
-            alt="Shopping"
-            className="h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1600"
+            alt="Flip Pro shopping"
+            className="absolute inset-0 h-full w-full object-cover"
           />
 
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10" />
 
           <div className="absolute inset-0 flex items-center px-6 sm:px-10 lg:px-14">
             <div className="text-white">
 
-              <p className="text-2xl font-bold uppercase tracking-widest text-yellow-300 sm:text-xs">
+              <p className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-yellow-300 sm:text-xs">
                 Flip Pro Exclusive
               </p>
 
-              <h2 className="mt-2 text-2xl font-bold sm:text-3xl lg:text-4xl">
+              <h2 className="mt-2 text-2xl font-extrabold sm:text-3xl lg:text-4xl">
                 Shop More. Save More.
               </h2>
 
@@ -281,30 +302,30 @@ function Home() {
                 Find products you'll love at prices you'll love.
               </p>
 
-             <Link
-               to="/products"
-                 className="mt-4 inline-flex rounded-lg bg-[#ffd43b] px-12 py-3 text-xs font-bold text-slate-950 shadow-lg transition hover:bg-[#ffca1a] sm:text-sm"
-                >
-                Start Shopping
-             </Link>
-
+              <Link
+                to="/products"
+                className="mt-4 inline-flex items-center rounded-lg bg-[#ffd43b] px-6 py-2.5 text-xs font-extrabold text-slate-950 sm:px-8 sm:py-3 sm:text-sm"
+              >
+                Start Shopping →
+              </Link>
 
             </div>
           </div>
+
         </div>
       </section>
-
       {/* TOP RATED */}
-      <section className="mx-auto w-full max-w-[1480px] px-3 pt-5 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm sm:p-7">
+      <section className="mx-auto mt-8 w-full max-w-[1500px] px- sm:px-3 lg:px-4">
 
-          <div className="mb-5 flex items-center justify-between border-b pb-4">
+        <div className="w-full rounded-2xl border border-slate-200 bg-white p-3 shadow-sm sm:p-5 lg:p-6">
+
+          <div className="mb-4 flex items-end justify-between border-b border-slate-100 pb-4">
             <div>
-              <h2 className="text-lg p-4 font-bold text-gray-900 sm:text-xl">
-                Top Rated Products
+              <h2 className="text-lg font-extrabold text-slate-900 sm:text-2xl">
+                ⭐ Top Rated Products
               </h2>
 
-              <p className="mt-1 text-xs text-gray-500 sm:text-sm">
+              <p className="mt-1 text-xs text-slate-500 sm:text-sm">
                 Popular picks from our store
               </p>
             </div>
@@ -319,15 +340,23 @@ function Home() {
 
           {loading ? (
             <Loader />
-          ) : (
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5 lg:gap-5">
+          ) : topRated.length > 0 ? (
+            <div className="grid w-full grid-cols-1 justify-items-center gap-3 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:grid-cols-5">
+
               {topRated.map((product) => (
-                <ProductCard
+                <div
                   key={product._id}
-                  product={product}
-                />
+                  className="w-[82%] sm:w-full"
+                >
+                  <ProductCard product={product} />
+                </div>
               ))}
+
             </div>
+          ) : (
+            <p className="py-8 text-center text-sm text-slate-500">
+              No products available.
+            </p>
           )}
 
         </div>
